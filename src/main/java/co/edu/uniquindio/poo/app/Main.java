@@ -1,17 +1,35 @@
-package co.edu.uniquindio.poo;
+package co.edu.uniquindio.poo.app;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+
+import co.edu.uniquindio.poo.model.Cliente;
+import co.edu.uniquindio.poo.model.Tienda;
+
+import javax.swing.*;
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main {
-    public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+
+    static void main() {
+
+        Tienda tienda = new Tienda("Tienda UQ","34567","7430000");
+
+        Cliente c1 = new Cliente("1094","Juan perez",tienda,
+                "31253664","juan@gamiel.com","Armenia");
+
+        String mensajeResultado = tienda.registrarCliente(c1);
+
+        JOptionPane.showMessageDialog(null,mensajeResultado);
+
+        Cliente resultado = tienda.buscarCliente1("109345");
+
+        if(resultado != null){
+            JOptionPane.showMessageDialog(null,"El cliente existe en la tienda");
+        }else{
+            JOptionPane.showMessageDialog(null,"El cliente no existe en la tienda");
         }
+
+
     }
 }
